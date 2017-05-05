@@ -19,11 +19,11 @@ before_install:
   - git clone https://github.com/jeffsetter/Halide_CoreIR.git
   - source Halide_CoreIR/test/scripts/before_install_travis.sh
 
-  - git clone https://github.com/rdaly525/coreir.git;
+  - git clone -b dev https://github.com/rdaly525/coreir.git;
   - cd coreir;
   - export COREIRCONFIG="g++-4.9";
   - export COREIRHOME=$PWD
-  - export LD_LIBRARY_PATH=$PWD/bin:$LD_LIBRARY_PATH
+  - export LD_LIBRARY_PATH=$PWD/lib:$LD_LIBRARY_PATH
   - make install
   - pip install pytest;
   - pip install -e bindings/python;
@@ -32,7 +32,7 @@ before_install:
   # I think the script might be lost...here's a quick reset.
   - cd ${TRAVIS_BUILD_DIR};
 
-  - git clone https://github.com/StanfordAHA/CGRAMapper.git;
+  - git clone -b cgralib https://github.com/StanfordAHA/CGRAMapper.git;
   - cd CGRAMapper/mapper;
   -   make;
   - cd ../../;
