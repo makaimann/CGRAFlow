@@ -17,6 +17,8 @@ compiler:
 before_install:
   - source ./install.sh
   - source setenv.sh
+  - sudo rm -vf /etc/apt/sources.list.d/*riak*
+  - sudo apt-get update
 
 install:
 
