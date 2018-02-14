@@ -33,21 +33,23 @@ $(warning OUTPUT = "$(OUTPUT)")
 # Image being used
 IMAGE := default
 
-CGRA_SIZE := 8x8
+CGRA_SIZE := 16x16
 MEM_SWITCH := -newmem  # Don't really need this...riiight?
-ifeq ($(CGRA_SIZE), 4x4)
-	MEM_SWITCH := -oldmem -4x4
-endif
 
-ifeq ($(CGRA_SIZE), 8x8)
-#	MEM_SWITCH := -newmem -8x8
-	MEM_SWITCH := -newmem
-endif
 
-# should be the default!
-ifeq ($(CGRA_SIZE), 16x16)
-	MEM_SWITCH := -newmem
-endif
+# ifeq ($(CGRA_SIZE), 4x4)
+# 	MEM_SWITCH := -oldmem -4x4
+# endif
+# 
+# ifeq ($(CGRA_SIZE), 8x8)
+# #	MEM_SWITCH := -newmem -8x8
+# 	MEM_SWITCH := -newmem
+# endif
+# 
+# # should be the default!
+# ifeq ($(CGRA_SIZE), 16x16)
+# 	MEM_SWITCH := -newmem
+# endif
 
 
 $(warning CGRA_SIZE = $(CGRA_SIZE))
@@ -235,18 +237,18 @@ else
 	  $(filter %.txt, $?) 2>&1 | head -n 40 | tee -a test/compare_summary.txt
 endif
 
-build/cgra_info_4x4.txt:
-	@echo; echo Making $@ because of $?
-	@echo "CGRA generate (generates 4x4 CGRA + connection matrix for pnr)"
-	cd CGRAGenerator; ./bin/generate.csh $(QVSWITCH) || exit 13
-	cp CGRAGenerator/hardware/generator_z/top/cgra_info.txt build/cgra_info_4x4.txt
-
-build/cgra_info_8x8.txt:
-	@echo; echo Making $@ because of $?
-	@echo "CGRA generate (generates 8x8 CGRA + connection matrix for pnr)"
-	cd CGRAGenerator; export CGRA_GEN_USE_MEM=1; ./bin/generate.csh $(QVSWITCH) || exit 13
-	cp CGRAGenerator/hardware/generator_z/top/cgra_info.txt build/cgra_info_8x8.txt
-	CGRAGenerator/bin/cgra_info_analyzer.csh build/cgra_info_8x8.txt
+# build/cgra_info_4x4.txt:
+# 	@echo; echo Making $@ because of $?
+# 	@echo "CGRA generate (generates 4x4 CGRA + connection matrix for pnr)"
+# 	cd CGRAGenerator; ./bin/generate.csh $(QVSWITCH) || exit 13
+# 	cp CGRAGenerator/hardware/generator_z/top/cgra_info.txt build/cgra_info_4x4.txt
+# 
+# build/cgra_info_8x8.txt:
+# 	@echo; echo Making $@ because of $?
+# 	@echo "CGRA generate (generates 8x8 CGRA + connection matrix for pnr)"
+# 	cd CGRAGenerator; export CGRA_GEN_USE_MEM=1; ./bin/generate.csh $(QVSWITCH) || exit 13
+# 	cp CGRAGenerator/hardware/generator_z/top/cgra_info.txt build/cgra_info_8x8.txt
+# 	CGRAGenerator/bin/cgra_info_analyzer.csh build/cgra_info_8x8.txt
 
 build/cgra_info_16x16.txt:
 	@echo; echo Making $@ because of $?
