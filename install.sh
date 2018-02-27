@@ -25,7 +25,7 @@ export coreir_branch="master"
 export mapper_branch="master"
 # export cgra_branch="master"
 export cgra_branch="nbdev3"
-export pnr_branch="master"
+export pnr_branch="add_io_tiles"
 export smt_branch="master"
 
 #halide
