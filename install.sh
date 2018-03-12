@@ -23,14 +23,15 @@ export smt_git="https://github.com/makaimann/smt-switch"
 export halide_branch="master"
 export coreir_branch="master"
 export mapper_branch="master"
+
+
 # export cgra_branch="master"
-
-
-# export cgra_branch="dev"
-export cgra_branch="serpent"
-
+export cgra_branch="dev"
 
 export pnr_branch="add_io_tiles"
+
+
+
 export smt_branch="master"
 
 #halide
