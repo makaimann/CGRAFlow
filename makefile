@@ -107,7 +107,7 @@ serpent_tests:
 	make build/conv_2_1.correct.txt  DELAY=10,0  GOLD=ignore PNR=serpent
 	make build/conv_3_1.correct.txt  DELAY=20,0  GOLD=ignore PNR=serpent
 	make build/pointwise.correct.txt DELAY=0.0   GOLD=ignore PNR=serpent
-#	make build/conv_bw.correct.txt   DELAY=130,0 GOLD=ignore PNR=serpent
+	make build/conv_bw.correct.txt   DELAY=130,0 GOLD=ignore PNR=serpent
 
 clean_pnr:
 #       # Remove pnr intermediates for e.g. retesting w/serpent
@@ -314,7 +314,7 @@ endif
         # the bitstream) versus a separately-decoded version of the bitstream,
         # to make  sure they match
 	@echo; echo Checking $*_annotated against separately-decoded $*_annotated...
-	@echo "% bsa_verify.csh $*_pnr_bitstream $*_annotated"
+	@echo "% bsa_verify.csh $(QVSWITCH) build/$*_annotated -cgra $(filter %.txt, $?)
 	@CGRAGenerator/testdir/bsa_verify.csh $(QVSWITCH) \
 		build/$*_annotated \
 		-cgra $(filter %.txt, $?)
