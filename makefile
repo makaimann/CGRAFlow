@@ -314,7 +314,7 @@ endif
         # the bitstream) versus a separately-decoded version of the bitstream,
         # to make  sure they match
 	@echo; echo Checking $*_annotated against separately-decoded $*_annotated...
-	@echo "% bsa_verify $*_pnr_bitstream $*_annotated"
+	@echo "% bsa_verify.csh $*_pnr_bitstream $*_annotated"
 	@CGRAGenerator/testdir/bsa_verify.csh $(QVSWITCH) \
 		build/$*_annotated \
 		-cgra $(filter %.txt, $?)
