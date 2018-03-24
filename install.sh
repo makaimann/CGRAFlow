@@ -52,6 +52,7 @@ which pip
 which python
 which python3
 
+pip install -e git+https://github.com:leonardt/pycoreir.git@dev#egg=coreir
 
 #pull all repos
 git clone -b ${halide_branch} -- ${halide_git} || git -C Halide_CoreIR pull
@@ -87,7 +88,6 @@ make -j2 build
 sudo make -j2 install
 cd ..;
 
-pip install -e git+git@github.com:leonardt/pycoreir.git@dev#egg=coreir
 
 pwd
 cd CGRAMapper
