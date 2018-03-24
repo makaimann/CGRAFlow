@@ -21,8 +21,8 @@ export pnr_git="https://github.com/cdonovick/smt-pnr"
 export smt_git="https://github.com/makaimann/smt-switch"
 
 export halide_branch="master"
-export coreir_branch="master"
-export mapper_branch="master"
+export coreir_branch="dev"
+export mapper_branch="dev"
 
 
 # export cgra_branch="master"
@@ -87,7 +87,7 @@ make -j2 build
 sudo make -j2 install
 cd ..;
 
-pip install coreir
+pip install -e git+git@github.com:leonardt/pycoreir.git@dev
 
 pwd
 cd CGRAMapper
