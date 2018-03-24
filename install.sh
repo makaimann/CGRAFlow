@@ -87,7 +87,7 @@ make -j2 build
 sudo make -j2 install
 cd ..;
 
-pip install -e git+git@github.com:leonardt/pycoreir.git@dev
+pip install -e git+git@github.com:leonardt/pycoreir.git@dev#egg=coreir
 
 pwd
 cd CGRAMapper
