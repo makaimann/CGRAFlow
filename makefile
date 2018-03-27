@@ -328,7 +328,6 @@ build/%_CGRA_out.raw: build/%_pnr_bitstream
 
 	@cd $(VERILATOR_TOP);    \
 	build=../../../build;   \
-#	./run.csh top_tb.cpp -hackmem           
 	./run.csh top_tb.cpp          \
 		$(QVSWITCH)              \
 		$(MEM_SWITCH)                       \
