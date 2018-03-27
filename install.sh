@@ -26,8 +26,7 @@ export coreir_branch="dev"
 export mapper_branch="dev"
 
 
-# export cgra_branch="master"
-export cgra_branch="dev"
+export cgra_branch="master"
 
 export pnr_branch="add_io_tiles"
 
