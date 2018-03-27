@@ -267,13 +267,14 @@ else
         # $(filter %.txt,  $?) => config file   e.g. "build/cgra_info_4x4.txt"
         # (Could also maybe use $(word 1, $?) and $(word 2, $?)
         # Note json file must come before config file on command line!!!
-	smt-pnr/run_pnr.py                        \
+	smt-pnr/run_pnr.py                            \
 		$(filter %.json,$?)                   \
 		$(filter %.txt, $?)                   \
 		--board-info build/board_info.json    \
 		--bitstream build/$*_pnr_bitstream    \
 		--annotate build/$*_annotated         \
 		--debug                               \
+		--solver CVC4                         \
 		--print --coreir-libs cgralib
 endif
 
