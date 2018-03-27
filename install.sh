@@ -24,14 +24,8 @@ export smt_git="https://github.com/makaimann/smt-switch"
 export halide_branch="coreir-dev"
 export coreir_branch="dev"
 export mapper_branch="dev"
-
-
-export cgra_branch="master"
-
+export cgra_branch="dev"
 export pnr_branch="add_io_tiles"
-
-
-
 export smt_branch="master"
 
 #halide
