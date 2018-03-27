@@ -274,7 +274,7 @@ else
 		--bitstream build/$*_pnr_bitstream    \
 		--annotate build/$*_annotated         \
 		--debug                               \
-		--solver CVC4                         \
+		--solver Boolector                    \
 		--print --coreir-libs cgralib
 endif
 
