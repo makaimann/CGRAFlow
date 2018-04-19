@@ -13,7 +13,8 @@ if [[ -z "${TRAVIS_BUILD_DIR}" ]]; then
     export TRAVIS_BUILD_DIR=`pwd`
 fi
 
-export halide_git="https://github.com/jeffsetter/Halide_CoreIR.git"
+#export halide_git="https://github.com/jeffsetter/Halide_CoreIR.git"
+export halide_git="https://github.com/rdaly525/Halide_CoreIR.git"
 export coreir_git="https://github.com/rdaly525/coreir.git"
 export mapper_git="https://github.com/StanfordAHA/CGRAMapper.git"
 export cgra_git="https://github.com/StanfordAHA/CGRAGenerator.git"
@@ -21,9 +22,9 @@ export pnr_git="https://github.com/cdonovick/smt-pnr"
 export smt_git="https://github.com/makaimann/smt-switch"
 export test_bench_generator_git="https://github.com/StanfordAHA/TestBenchGenerator"
 
-export halide_branch="master"
-export coreir_branch="master"
-export mapper_branch="master"
+export halide_branch="coreir-dev"
+export coreir_branch="dev"
+export mapper_branch="dev"
 export cgra_branch="master"
 export pnr_branch="master"
 export smt_branch="master"
