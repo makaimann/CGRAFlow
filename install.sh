@@ -26,7 +26,7 @@ export halide_branch="coreir-dev"
 export coreir_branch="dev"
 export mapper_branch="dev"
 export cgra_branch="master"
-export pnr_branch="master"
+export pnr_branch="onebit-io"
 export smt_branch="master"
 export test_bench_generator_branch="master"
 
