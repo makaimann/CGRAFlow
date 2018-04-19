@@ -79,10 +79,12 @@ core_tests:
 	make clean_pnr
 #       # For verbose output add "SILENT=FALSE" to command line(s) below
 	make build/pointwise.correct.txt DELAY=0,0   GOLD=ignore
+	make build/onebit_comp.correct.txt   DELAY=0,0 GOLD=ignore
 	make build/conv_1_2.correct.txt  DELAY=1,0   GOLD=ignore
 	make build/conv_2_1.correct.txt  DELAY=10,0  GOLD=ignore
 	make build/conv_3_1.correct.txt  DELAY=20,0  GOLD=ignore
 	make build/conv_bw.correct.txt   DELAY=130,0 GOLD=ignore
+
 
 serpent_tests:
 	make clean_pnr
