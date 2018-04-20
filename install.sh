@@ -89,6 +89,7 @@ pip install coreir
 pwd
 cd CGRAMapper
 make -j2
+sudo make install
 cd ../;
 
 date
