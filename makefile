@@ -277,6 +277,7 @@ else
 		--io-collateral build/$*.io.json      \
 		--solver Boolector                    \
 		--debug                               \
+		--board-info build/board_info.json    \
 		--print --coreir-libs cgralib
 endif
 
