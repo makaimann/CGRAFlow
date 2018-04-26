@@ -6,7 +6,7 @@ sudo apt-get update -y
 sudo apt-get install g++-4.9 -y
 sudo apt-get install gcc-4.9 -y
 
-sudo apt-get install verilator luajit build-essential clang libedit-dev libpng-dev csh libgmp3-dev git cmake zlib1g zlib1g-dev graphviz-dev python3 swig2.0 libcln-dev imagemagick python-virtualenv libxml2-dev libxslt-dev python3-dev -y
+sudo apt-get install verilator luajit build-essential clang libedit-dev libpng-dev csh libgmp3-dev git cmake zlib1g zlib1g-dev graphviz-dev python3 swig2.0 libcln-dev imagemagick python-virtualenv libxml2-dev libxslt-dev python3-dev python3-pip -y
 
 if [[ -z "${TRAVIS_BUILD_DIR}" ]]; then
     # Halide_CoreIR/test/scripts/install_travis.sh is known to use this
@@ -30,6 +30,32 @@ export pnr_branch="onebit-io"
 export smt_branch="master"
 export test_bench_generator_branch="master"
 
+pip3 install --user delegator.py
+python3 scripts/repo_manager.py                                                 \
+    --halide                      coreir-dev                                    \
+    --halide-remote               github.com/jeffsetter/Halide_CoreIR.git       \
+                                                                                \
+    --coreir                      dev                                           \
+    --coreir-remote               github.com/rdaly525/coreir.git                \
+                                                                                \
+    --pycoreir                    dev                                           \
+    --pycoreir-remote             github.com/leonardt/pycoreir.git              \
+                                                                                \
+    --pnr-doctor                  onebit-io                                     \
+    --pnr-doctor-remote           github.com/cdonovick/smt-pnr.git              \
+                                                                                \
+    --smt-switch                  master                                        \
+    --smt-switch-remote           github.com/makaimann/smt-switch.git           \
+                                                                                \
+    --mapper                      master                                        \
+    --mapper-remote               github.com/StanfordAHA/CGRAMapper.git         \
+                                                                                \
+    --cgra-generator              master                                        \
+    --cgra-generator-remote       github.com/StanfordAHA/CGRAGenerator.git      \
+                                                                                \
+    --test-bench-generator        master                                        \
+    --test-bench-generator-remote github.com/StanfordAHA/TestBenchGenerator.git
+
 #halide
 export LLVM_VERSION=3.7.1
 export BUILD_SYSTEM=MAKE
@@ -47,16 +73,6 @@ conda info -a
 which pip
 which python
 which python3
-
-
-#pull all repos
-git clone -b ${halide_branch} -- ${halide_git} || git -C Halide_CoreIR pull
-git clone -b ${coreir_branch} -- ${coreir_git} || git -C coreir pull
-git clone -b ${mapper_branch} -- ${mapper_git} || git -C CGRAMapper pull
-git clone -b ${cgra_branch} -- ${cgra_git} || git -C CGRAGenerator pull
-git clone -b ${pnr_branch} -- ${pnr_git} || git -C smt-pnr pull
-git clone -b ${smt_branch} -- ${smt_git} || git -C smt-switch pull
-git clone -b ${test_bench_generator_branch} -- ${test_bench_generator_git} || git -C TestBenchGenerator pull
 
 #[SR 12/2017] somebody might want to clean this up later
 git clone https://github.com/StanfordVLSI/Genesis2.git /tmp/Genesis2
@@ -84,8 +100,7 @@ make -j2 build
 sudo make -j2 install
 cd ..;
 
-# pip install coreir
-pip install git+git://github.com/leonardt/pycoreir.git@dev
+pip install -e pycoreir
 
 pwd
 cd CGRAMapper
