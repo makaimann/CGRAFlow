@@ -22,7 +22,7 @@ export pnr_git="https://github.com/cdonovick/smt-pnr"
 export smt_git="https://github.com/makaimann/smt-switch"
 export test_bench_generator_git="https://github.com/StanfordAHA/TestBenchGenerator"
 
-export halide_branch="coreir-dev"
+export halide_branch="master"
 export coreir_branch="dev"
 export mapper_branch="dev"
 export cgra_branch="master"
@@ -32,7 +32,7 @@ export test_bench_generator_branch="master"
 
 pip3 install --user delegator.py
 python3 scripts/repo_manager.py                                                 \
-    --halide                      coreir-dev                                    \
+    --halide                      master                                        \
     --halide-remote               github.com/jeffsetter/Halide_CoreIR.git       \
                                                                                 \
     --coreir                      dev                                           \
