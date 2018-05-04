@@ -42,7 +42,8 @@ python3 scripts/repo_manager.py                                      \
     --cgra-generator-remote       StanfordAHA/CGRAGenerator.git      \
                                                                      \
     --test-bench-generator        master                             \
-    --test-bench-generator-remote StanfordAHA/TestBenchGenerator.git
+    --test-bench-generator-remote StanfordAHA/TestBenchGenerator.git \
+    --force
 
 #halide
 export LLVM_VERSION=3.7.1
