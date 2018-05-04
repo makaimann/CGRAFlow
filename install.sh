@@ -13,29 +13,12 @@ if [[ -z "${TRAVIS_BUILD_DIR}" ]]; then
     export TRAVIS_BUILD_DIR=`pwd`
 fi
 
-#export halide_git="https://github.com/jeffsetter/Halide_CoreIR.git"
-export halide_git="https://github.com/rdaly525/Halide_CoreIR.git"
-export coreir_git="https://github.com/rdaly525/coreir.git"
-export mapper_git="https://github.com/StanfordAHA/CGRAMapper.git"
-export cgra_git="https://github.com/StanfordAHA/CGRAGenerator.git"
-export pnr_git="https://github.com/cdonovick/smt-pnr"
-export smt_git="https://github.com/makaimann/smt-switch"
-export test_bench_generator_git="https://github.com/StanfordAHA/TestBenchGenerator"
-
-export halide_branch="master"
-export coreir_branch="dev"
-export mapper_branch="dev"
-export cgra_branch="master"
-export pnr_branch="onebit-io"
-export smt_branch="master"
-export test_bench_generator_branch="master"
-
 
 export COREIRCONFIG="g++-4.9";
 pip3 install --user delegator.py
 python3 scripts/repo_manager.py                                                 \
     --halide                      master                                        \
-    --halide-remote               github.com/jeffsetter/Halide_CoreIR.git       \
+    --halide-remote               github.com/rdaly525/Halide_CoreIR.git         \
                                                                                 \
     --coreir                      dev                                           \
     --coreir-remote               github.com/rdaly525/coreir.git                \
@@ -49,7 +32,7 @@ python3 scripts/repo_manager.py                                                 
     --smt-switch                  master                                        \
     --smt-switch-remote           github.com/makaimann/smt-switch.git           \
                                                                                 \
-    --mapper                      master                                        \
+    --mapper                      dev                                           \
     --mapper-remote               github.com/StanfordAHA/CGRAMapper.git         \
                                                                                 \
     --cgra-generator              master                                        \
@@ -97,22 +80,8 @@ source Halide_CoreIR/test/scripts/before_install_travis.sh
 #sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.9 20
 #sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.9 20
 #-----
-#make -j2 build
-#sudo make -j2 install
-#cd ..;
-
-#pip install -e pycoreir
-
-#pwd
-#cd CGRAMapper
-#make -j2
-#sudo make install
-#cd ../;
 
 date
-
-# API for SMT solving with different solvers
-pip install -e smt-switch
 
 pwd
 
@@ -124,7 +93,6 @@ Halide_CoreIR/test/scripts/install_travis.sh
 # if all the solvers are already cached it doesn't need to download
 # if there are any missing solvers, downloads from Makai's AFS
 . ./smt-pnr/util/get_smt_solvers.sh
-pip install -e smt-pnr/package
 
 # need this for the new dot-compare test(s)
 # pip install pygtk

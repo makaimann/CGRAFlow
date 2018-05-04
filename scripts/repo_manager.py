@@ -77,29 +77,29 @@ class Halide_CoreIR(Repo):
 
 class coreir(Repo):
     def install(self):
-        run("make clean", cwd=repo.directory)
-        run("sudo make -j 2 install", cwd=repo.directory)
+        run("make clean", cwd=self.directory)
+        run("sudo make -j 2 install", cwd=self.directory)
 
 class pycoreir(Repo):
     def install(self):
-        run("pip install -e .", cwd=repo.directory)
+        run("pip install -e .", cwd=self.directory)
 
 class CGRAMapper(Repo):
     def install(self):
-        run("make clean", cwd=repo.directory)
-        run("sudo make -j 2 install", cwd=repo.directory)
+        run("make clean", cwd=self.directory)
+        run("sudo make -j 2 install", cwd=self.directory)
 
 class PnRDoctor(Repo):
     directory = "smt-pnr"
 
     def install(self):
-        run("pip install -e package", cwd=repo.directory)
+        run("pip install -e package", cwd=self.directory)
 
 class smt_switch(Repo):
     directory = "smt-switch"
 
     def install(self):
-        pass
+        run("pip install -e .", cwd=self.directory)
 
 class CGRAGenerator(Repo):
     def install(self):
