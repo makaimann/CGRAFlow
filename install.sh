@@ -23,6 +23,9 @@ python3 scripts/repo_manager.py                                      \
     --coreir                      dev                                \
     --coreir-remote               rdaly525/coreir.git                \
                                                                      \
+    --bit_vector                  master                             \
+    --bit-vector-remote           leonardt/bit_vector.git            \
+                                                                     \
     --pycoreir                    dev                                \
     --pycoreir-remote             leonardt/pycoreir.git              \
                                                                      \
@@ -97,5 +100,3 @@ Halide_CoreIR/test/scripts/install_travis.sh
 # need this for the new dot-compare test(s)
 # pip install pygtk
 sudo apt-get install python-gtk2 -y
-
-pip install delegator.py

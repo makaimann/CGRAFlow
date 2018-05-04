@@ -1,5 +1,5 @@
 import argparse
-import os 
+import os
 import delegator
 
 tab = "    "
@@ -9,7 +9,7 @@ def run(command, *args, cwd=".", **kwargs):
     result = delegator.run(command, *args, cwd=cwd, **kwargs)
     print((tab * 2) + (tab * 2).join(result.out.splitlines()))
     if result.return_code:
-        print((tab * 2) + (tab * 2).join(result.err.splitlines()))
+        print((tab * 2) + ("\n" + (tab * 2)).join(result.err.splitlines()))
         raise RuntimeError("Running command {} failed".format(command))
     return result.out
 
@@ -19,6 +19,8 @@ parser.add_argument("-f", "--force", action="store_true", help="Force rebuild an
 parser.add_argument("--with-ssh", action="store_true", help="Clone with ssh", default=False)
 parser.add_argument("--coreir", help="coreir branch", default="master")
 parser.add_argument("--coreir-remote", help="coreir remote ", default="rdaly525/coreir.git")
+parser.add_argument("--bit_vector", help="bit_vector branch", default="master")
+parser.add_argument("--bit-vector-remote", help="bit_vector remote ", default="leonardt/bit_vector.git")
 parser.add_argument("--pycoreir", help="pycoreir branch", default="master")
 parser.add_argument("--pycoreir-remote", help="pycoreir remote ", default="leonardt/pycoreir.git")
 parser.add_argument("--mapper", help="mapper branch", default="master")
@@ -73,7 +75,6 @@ class Repo:
 
 class Halide_CoreIR(Repo):
     def install(self):
-        pass
 
 class coreir(Repo):
     def install(self):
@@ -81,6 +82,10 @@ class coreir(Repo):
         run("sudo make -j 2 install", cwd=self.directory)
 
 class pycoreir(Repo):
+    def install(self):
+        run("pip install -e .", cwd=self.directory)
+
+class bit_vector(Repo):
     def install(self):
         run("pip install -e .", cwd=self.directory)
 
@@ -117,6 +122,10 @@ repos = (
     coreir(
         remote=args.coreir_remote,
         branch=args.coreir
+    ),
+    bit_vector(
+        remote=args.bit_vector_remote,
+        branch=args.bit_vector
     ),
     pycoreir(
         remote=args.pycoreir_remote,
