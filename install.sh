@@ -15,6 +15,7 @@ fi
 
 
 export COREIRCONFIG="g++-4.9";
+pip3 install --upgrade pip
 pip3 install --user delegator.py
 python3 scripts/repo_manager.py                                      \
     --halide                      master                             \
