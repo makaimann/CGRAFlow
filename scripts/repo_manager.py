@@ -88,7 +88,7 @@ class pycoreir(Repo):
 
 class bit_vector(Repo):
     def install(self):
-        run("pip install -e .", cwd=self.directory)
+        run("pip install --user -e .", cwd=self.directory)
 
 class CGRAMapper(Repo):
     def install(self):
