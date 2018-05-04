@@ -82,7 +82,7 @@ class coreir(Repo):
 
 class pycoreir(Repo):
     def install(self):
-        run("pip install -e --user .", cwd=self.directory)
+        run("pip install --user -e .", cwd=self.directory)
 
 class CGRAMapper(Repo):
     def install(self):
