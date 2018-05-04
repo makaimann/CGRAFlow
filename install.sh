@@ -30,6 +30,8 @@ export pnr_branch="onebit-io"
 export smt_branch="master"
 export test_bench_generator_branch="master"
 
+
+export COREIRCONFIG="g++-4.9";
 pip3 install --user delegator.py
 python3 scripts/repo_manager.py                                                 \
     --halide                      master                                        \
@@ -81,8 +83,7 @@ git clone https://github.com/StanfordVLSI/Genesis2.git /tmp/Genesis2
 source Halide_CoreIR/test/scripts/before_install_travis.sh
 
 # build coreir
-cd coreir;
-export COREIRCONFIG="g++-4.9";
+#cd coreir;
 #-----
 # SR 171027 derp support
 # COREIRCONFIG var (above) did not do the trick for derp.
@@ -93,20 +94,20 @@ export COREIRCONFIG="g++-4.9";
 #   Each alternative has a priority associated with it. When a link
 #   group is in automatic mode, the alternatives pointed to by members
 #   of the group will be those which have the highest priority.
-sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.9 20
-sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.9 20
+#sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.9 20
+#sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.9 20
 #-----
-make -j2 build
-sudo make -j2 install
-cd ..;
+#make -j2 build
+#sudo make -j2 install
+#cd ..;
 
-pip install -e pycoreir
+#pip install -e pycoreir
 
-pwd
-cd CGRAMapper
-make -j2
-sudo make install
-cd ../;
+#pwd
+#cd CGRAMapper
+#make -j2
+#sudo make install
+#cd ../;
 
 date
 
