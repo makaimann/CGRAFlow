@@ -19,8 +19,6 @@ parser.add_argument("-f", "--force", action="store_true", help="Force rebuild an
 parser.add_argument("--with-ssh", action="store_true", help="Clone with ssh", default=False)
 parser.add_argument("--coreir", help="coreir branch", default="master")
 parser.add_argument("--coreir-remote", help="coreir remote ", default="rdaly525/coreir.git")
-parser.add_argument("--bit_vector", help="bit_vector branch", default="master")
-parser.add_argument("--bit-vector-remote", help="bit_vector remote ", default="leonardt/bit_vector.git")
 parser.add_argument("--pycoreir", help="pycoreir branch", default="master")
 parser.add_argument("--pycoreir-remote", help="pycoreir remote ", default="leonardt/pycoreir.git")
 parser.add_argument("--mapper", help="mapper branch", default="master")
@@ -84,11 +82,7 @@ class coreir(Repo):
 
 class pycoreir(Repo):
     def install(self):
-        run("pip install -e .", cwd=self.directory)
-
-class bit_vector(Repo):
-    def install(self):
-        run("pip install --user -e .", cwd=self.directory)
+        run("pip install -e --user .", cwd=self.directory)
 
 class CGRAMapper(Repo):
     def install(self):

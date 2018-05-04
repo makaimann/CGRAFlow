@@ -23,9 +23,6 @@ python3 scripts/repo_manager.py                                      \
     --coreir                      dev                                \
     --coreir-remote               rdaly525/coreir.git                \
                                                                      \
-    --bit_vector                  master                             \
-    --bit-vector-remote           leonardt/bit_vector.git            \
-                                                                     \
     --pycoreir                    dev                                \
     --pycoreir-remote             leonardt/pycoreir.git              \
                                                                      \
