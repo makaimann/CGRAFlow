@@ -118,10 +118,6 @@ repos = (
         remote=args.coreir_remote,
         branch=args.coreir
     ),
-    bit_vector(
-        remote=args.bit_vector_remote,
-        branch=args.bit_vector
-    ),
     pycoreir(
         remote=args.pycoreir_remote,
         branch=args.pycoreir
