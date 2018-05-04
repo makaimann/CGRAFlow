@@ -18,26 +18,26 @@ parser = argparse.ArgumentParser(description="Checkout and update branches in pr
 parser.add_argument("-f", "--force", action="store_true", help="Force rebuild and install", default=False)
 parser.add_argument("--with-ssh", action="store_true", help="Clone with ssh", default=False)
 parser.add_argument("--coreir", help="coreir branch", default="master")
-parser.add_argument("--coreir-remote", help="coreir remote ", default="github.com/rdaly525/coreir.git")
+parser.add_argument("--coreir-remote", help="coreir remote ", default="rdaly525/coreir.git")
 parser.add_argument("--pycoreir", help="pycoreir branch", default="master")
-parser.add_argument("--pycoreir-remote", help="pycoreir remote ", default="github.com/leonardt/pycoreir.git")
+parser.add_argument("--pycoreir-remote", help="pycoreir remote ", default="leonardt/pycoreir.git")
 parser.add_argument("--mapper", help="mapper branch", default="master")
-parser.add_argument("--mapper-remote", help="mapper remote", default="github.com/StanfordAHA/CGRAMapper.git")
+parser.add_argument("--mapper-remote", help="mapper remote", default="StanfordAHA/CGRAMapper.git")
 parser.add_argument("--halide", help="halide branch", default="master")
-parser.add_argument("--halide-remote", help="halide remote", default="github.com/jeffsetter/Halide_CoreIR.git")
+parser.add_argument("--halide-remote", help="halide remote", default="jeffsetter/Halide_CoreIR.git")
 parser.add_argument("--pnr-doctor", help="pnr branch", default="master")
-parser.add_argument("--pnr-doctor-remote", help="pnr remote", default="github.com/cdonovick/smt-pnr.git")
+parser.add_argument("--pnr-doctor-remote", help="pnr remote", default="cdonovick/smt-pnr.git")
 parser.add_argument("--smt-switch", help="smt-switch branch", default="master")
-parser.add_argument("--smt-switch-remote", help="smt-switch remote", default="github.com/makaimann/smt-switch.git")
+parser.add_argument("--smt-switch-remote", help="smt-switch remote", default="makaimann/smt-switch.git")
 parser.add_argument("--cgra-generator", help="generator branch", default="master")
-parser.add_argument("--cgra-generator-remote", help="generator remote", default="github.com/StanfordAHA/CGRAGenerator.git")
+parser.add_argument("--cgra-generator-remote", help="generator remote", default="StanfordAHA/CGRAGenerator.git")
 parser.add_argument("--test-bench-generator", help="TestBenchGenerator branch", default="master")
-parser.add_argument("--test-bench-generator-remote", help="TestBenchGenerator remote", default="github.com/StanfordAHA/TestBenchGenerator.git")
+parser.add_argument("--test-bench-generator-remote", help="TestBenchGenerator remote", default="StanfordAHA/TestBenchGenerator.git")
 
 args = parser.parse_args()
 
 class Repo:
-    remote_prefix = "git@" if args.with_ssh else "https://"
+    remote_prefix = "git@github.com:" if args.with_ssh else "https://github.com/"
     def __init__(self, remote, branch):
         """
         Each repository is initialized with a remote and a branch
@@ -111,35 +111,35 @@ class TestBenchGenerator(Repo):
 
 repos = (
     Halide_CoreIR(
-        remote=args.halide_remote, 
+        remote=args.halide_remote,
         branch=args.halide
-    ), 
+    ),
     coreir(
-        remote=args.coreir_remote, 
+        remote=args.coreir_remote,
         branch=args.coreir
-    ), 
+    ),
     pycoreir(
-        remote=args.pycoreir_remote, 
+        remote=args.pycoreir_remote,
         branch=args.pycoreir
-    ), 
+    ),
     CGRAMapper(
-        remote=args.mapper_remote, 
+        remote=args.mapper_remote,
         branch=args.mapper
-    ), 
+    ),
     PnRDoctor(
-        remote=args.pnr_doctor_remote, 
+        remote=args.pnr_doctor_remote,
         branch=args.pnr_doctor
-    ), 
+    ),
     smt_switch(
-        remote=args.smt_switch_remote, 
+        remote=args.smt_switch_remote,
         branch=args.smt_switch
     ),
     CGRAGenerator(
-        remote=args.cgra_generator_remote, 
+        remote=args.cgra_generator_remote,
         branch=args.cgra_generator
-    ), 
+    ),
     TestBenchGenerator(
-        remote=args.test_bench_generator_remote, 
+        remote=args.test_bench_generator_remote,
         branch=args.test_bench_generator)
 )
 

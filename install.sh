@@ -16,30 +16,30 @@ fi
 
 export COREIRCONFIG="g++-4.9";
 pip3 install --user delegator.py
-python3 scripts/repo_manager.py                                                 \
-    --halide                      master                                        \
-    --halide-remote               github.com/rdaly525/Halide_CoreIR.git         \
-                                                                                \
-    --coreir                      dev                                           \
-    --coreir-remote               github.com/rdaly525/coreir.git                \
-                                                                                \
-    --pycoreir                    dev                                           \
-    --pycoreir-remote             github.com/leonardt/pycoreir.git              \
-                                                                                \
-    --pnr-doctor                  onebit-io                                     \
-    --pnr-doctor-remote           github.com/cdonovick/smt-pnr.git              \
-                                                                                \
-    --smt-switch                  master                                        \
-    --smt-switch-remote           github.com/makaimann/smt-switch.git           \
-                                                                                \
-    --mapper                      dev                                           \
-    --mapper-remote               github.com/StanfordAHA/CGRAMapper.git         \
-                                                                                \
-    --cgra-generator              master                                        \
-    --cgra-generator-remote       github.com/StanfordAHA/CGRAGenerator.git      \
-                                                                                \
-    --test-bench-generator        master                                        \
-    --test-bench-generator-remote github.com/StanfordAHA/TestBenchGenerator.git
+python3 scripts/repo_manager.py                                      \
+    --halide                      master                             \
+    --halide-remote               rdaly525/Halide_CoreIR.git         \
+                                                                     \
+    --coreir                      dev                                \
+    --coreir-remote               rdaly525/coreir.git                \
+                                                                     \
+    --pycoreir                    dev                                \
+    --pycoreir-remote             leonardt/pycoreir.git              \
+                                                                     \
+    --pnr-doctor                  onebit-io                          \
+    --pnr-doctor-remote           cdonovick/smt-pnr.git              \
+                                                                     \
+    --smt-switch                  master                             \
+    --smt-switch-remote           makaimann/smt-switch.git           \
+                                                                     \
+    --mapper                      dev                                \
+    --mapper-remote               StanfordAHA/CGRAMapper.git         \
+                                                                     \
+    --cgra-generator              master                             \
+    --cgra-generator-remote       StanfordAHA/CGRAGenerator.git      \
+                                                                     \
+    --test-bench-generator        master                             \
+    --test-bench-generator-remote StanfordAHA/TestBenchGenerator.git
 
 #halide
 export LLVM_VERSION=3.7.1
