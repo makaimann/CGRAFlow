@@ -75,6 +75,7 @@ class Repo:
 
 class Halide_CoreIR(Repo):
     def install(self):
+        pass
 
 class coreir(Repo):
     def install(self):
