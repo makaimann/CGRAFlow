@@ -35,8 +35,8 @@ which python
 which python3
 
 pip install delegator.py
-python scripts/repo_manager.py                                      \
-    --halide                      master                             \
+python scripts/repo_manager.py                                       \
+    --halide                      coreir-dev                         \
     --halide-remote               rdaly525/Halide_CoreIR.git         \
                                                                      \
     --coreir                      dev                                \
