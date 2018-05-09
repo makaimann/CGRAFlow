@@ -372,7 +372,7 @@ build/%.correct.txt: build/%_CGRA_out.raw
 	@echo "VISUAL COMPARE OF CGRA VS. HALIDE OUTPUT BYTES (should be null)"
 	@od -t u1 -w1 -v -A none build/$*_halide_out.raw > build/$*_halide_out.od
 	@od -t u1 -w1 -v -A none build/$*_CGRA_out.raw   > build/$*_CGRA_out.od
-	diff build/$*_halide_out.od build/$*_CGRA_out.od | head -50
+	diff --side-by-side -W 12 build/$*_halide_out.od build/$*_CGRA_out.od | head -50
 	@echo
 	@echo "BYTE-BY-BYTE COMPARE OF CGRA VS. HALIDE OUTPUT IMAGES (should be null)"
 	@echo cmp build/$*_halide_out.raw build/$*_CGRA_out.raw
