@@ -7,7 +7,7 @@ def run(command, *args, cwd=".", **kwargs):
     print(tab + "./" + cwd)
     print(tab + "+ " + command)
     result = delegator.run(command, *args, cwd=cwd, **kwargs)
-    print((tab * 2) + (tab * 2).join(result.out.splitlines()))
+    print((tab * 2) + ("\n" + tab * 2).join(result.out.splitlines()))
     if result.return_code:
         print((tab * 2) + ("\n" + (tab * 2)).join(result.err.splitlines()))
         raise RuntimeError("Running command {} failed".format(command))
@@ -69,6 +69,9 @@ class Repo:
         args.with_ssh
         """
         run("git clone {}{}".format(Repo.remote_prefix, self.remote))
+
+    def update_origin(self):
+        run(f"git remote set-url origin {self.remote_prefix}{self.remote}", cwd=self.directory)
 
 
 class Halide_CoreIR(Repo):
@@ -151,6 +154,7 @@ for repo in repos:
     if not os.path.exists(repo.directory):
         repo.clone()
     current_head = run("git symbolic-ref HEAD", cwd=repo.directory).rstrip()
+    repo.update_origin()
     if current_head != "refs/heads/{}".format(repo.branch) or args.force:
         run("git fetch origin", cwd=repo.directory)
         run("git checkout {}".format(repo.branch), cwd=repo.directory)
