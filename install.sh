@@ -57,7 +57,7 @@ python scripts/repo_manager.py                                       \
     --cgra-generator              master                             \
     --cgra-generator-remote       StanfordAHA/CGRAGenerator.git      \
                                                                      \
-    --test-bench-generator        master                             \
+    --test-bench-generator        coreir-dev                         \
     --test-bench-generator-remote StanfordAHA/TestBenchGenerator.git \
     --force
 
