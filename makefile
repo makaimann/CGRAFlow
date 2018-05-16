@@ -228,7 +228,6 @@ build/cgra_info_16x16.txt:
 	@echo "CGRA generate (generates 16x16 CGRA + connection matrix for pnr)"
 	cd CGRAGenerator; export CGRA_GEN_USE_MEM=1; ./bin/generate.csh $(QVSWITCH) -$(CGRA_SIZE)|| exit 13
 	cp CGRAGenerator/hardware/generator_z/top/cgra_info.txt build/cgra_info_16x16.txt
-	cp board_info.json build/board_info.json
 	CGRAGenerator/bin/cgra_info_analyzer.csh build/cgra_info_16x16.txt
 
 
@@ -269,6 +268,7 @@ else
         # $(filter %.txt,  $?) => config file   e.g. "build/cgra_info_4x4.txt"
         # (Could also maybe use $(word 1, $?) and $(word 2, $?)
         # Note json file must come before config file on command line!!!
+	cp boards/board_info.json build/board_info.json
 	smt-pnr/run_pnr.py                        \
 		$(filter %.json,$?)                   \
 		$(filter %.txt, $?)                   \
