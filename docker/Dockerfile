@@ -14,4 +14,4 @@ RUN git clone https://github.com/StanfordAHA/CGRAFlow
 RUN cd CGRAFlow && ./install.sh
 RUN echo 'export CGRAFLOW_PATH=$HOME/CGRAFlow' >> $HOME/.bashrc
 RUN echo 'source $CGRAFLOW_PATH/setenv.sh' >> $HOME/.bashrc
-RUN cd CGRAFlow && CGRAFLOW_PATH=$PWD source setenv.sh && make core_only
+RUN cd CGRAFlow && CGRAFLOW_PATH=$PWD && source setenv.sh && make core_only
