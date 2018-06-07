@@ -18,7 +18,11 @@ compiler:
 
 before_install:
   - source ./install.sh
-  - source setenv.sh
+  - source ./setenv.sh
+  - echo 'Checking for smt_solvers'
+  - ls
+  - ls ./smt-pnr/
+  - echo $PYTHONPATH
 
 install:
 
