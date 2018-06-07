@@ -21,7 +21,9 @@ compiler:
 
 before_install:
   - source ./install.sh
-  - source setenv.sh
+  - source ./setenv.sh
+  - echo 'export CGRAFLOW_PATH=$HOME/CGRAFlow' >> $HOME/.bashrc
+  - echo 'source $CGRAFLOW_PATH/setenv.sh' >> $HOME/.bashrc
 
 install:
 
