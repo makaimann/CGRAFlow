@@ -24,6 +24,10 @@ before_install:
   - source ./setenv.sh
   - echo 'export CGRAFLOW_PATH=$HOME/CGRAFlow' >> $HOME/.bashrc
   - echo 'source $CGRAFLOW_PATH/setenv.sh' >> $HOME/.bashrc
+  # some introspection
+  - echo 'Checking for smt_solvers directory"
+  - ls
+  - ls ./smt-pnr/
 
 install:
 
