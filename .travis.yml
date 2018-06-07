@@ -21,8 +21,10 @@ before_install:
   - source ./setenv.sh
   - echo 'Checking for smt_solvers'
   - ls
-  - ls ./smt-pnr/
   - echo $PYTHONPATH
+  - ls ./smt_solvers/
+  - echo 'Testing python'
+  - python3 test.py
 
 install:
 
