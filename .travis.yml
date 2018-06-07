@@ -22,6 +22,7 @@ before_install:
   - echo 'Checking for smt_solvers'
   - ls
   - echo $PYTHONPATH
+  - echo $PWD
   - ls ./smt_solvers/
   - echo 'Testing python'
   - python3 test.py
