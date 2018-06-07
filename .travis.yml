@@ -22,6 +22,8 @@ compiler:
 before_install:
   - source ./install.sh
   - source setenv.sh
+  - echo 'Testing solvers'
+  - python3 test.py
 
 install:
 
