@@ -28,6 +28,8 @@ before_install:
   - echo 'Checking for smt_solvers directory'
   - ls
   - ls ./smt-pnr/
+  - echo 'Checking $HOME/.bashrc'
+  - cat $HOME/.bashrc
 
 install:
 
